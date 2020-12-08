@@ -15,8 +15,8 @@ speed = 100
 def forward():
     frontRight.run(Raspi_MotorHAT.FORWARD)
     frontLeft.run(Raspi_MotorHAT.FORWARD)
-    backLeft.run(Raspi_MotorHAT.BACKWARD)
-    backRight.run(Raspi_MotorHAT.BACKWARD)
+    backLeft.run(Raspi_MotorHAT.FORWARD)
+    backRight.run(Raspi_MotorHAT.FORWARD)
     
 
 def stop():
@@ -45,9 +45,9 @@ def initialize():
     backLeft.run(Raspi_MotorHAT.BACKWARD)
     backRight.run(Raspi_MotorHAT.BACKWARD)
     time.sleep(1)
-
-turnLeft()
-time.sleep(duration)
+forward()
+time.sleep(3)
 stop()
+
 
 
