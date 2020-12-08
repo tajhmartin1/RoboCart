@@ -12,21 +12,28 @@ backRight = mh.getMotor(4)
 duration = 2
 speed = 100
 
+def forward():
+    frontRight.run(Raspi_MotorHAT.FORWARD)
+    frontLeft.run(Raspi_MotorHAT.FORWARD)
+    backLeft.run(Raspi_MotorHAT.FORWARD)
+    backRight.run(Raspi_MotorHAT.FORWARD)
+    
+
 def stop():
-	frontRight.run(Raspi_MotorHAT.RELEASE)
-	frontLeft.run(Raspi_MotorHAT.RELEASE)
-	backLeft.run(Raspi_MotorHAT.RELEASE)
-	backRight.run(Raspi_MotorHAT.RELEASE)
+    frontRight.run(Raspi_MotorHAT.RELEASE)
+    frontLeft.run(Raspi_MotorHAT.RELEASE)
+    backLeft.run(Raspi_MotorHAT.RELEASE)
+    backRight.run(Raspi_MotorHAT.RELEASE)
 
 def turnRight():
-	frontLeft.setSpeed(speed)
-	backLeft.setSpeed(speed)
-	forward()
+    frontLeft.setSpeed(speed)
+    backLeft.setSpeed(speed)
+    forward()
 
 def turnLeft():
     frontRight.setSpeed(speed)
     backRight.setSpeed(speed)
-   	forward()
+    forward()
 
 def initialize():
     frontRight.setSpeed(100)
@@ -42,6 +49,9 @@ def initialize():
 initialize()
 turnLeft()
 time.sleep(duration)
+forward()
+time.sleep(3)
 stop()
+
 
 
