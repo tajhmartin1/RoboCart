@@ -25,32 +25,26 @@ def stop():
     backLeft.run(Raspi_MotorHAT.RELEASE)
     backRight.run(Raspi_MotorHAT.RELEASE)
 
-def turnRight():
-    frontLeft.setSpeed(speed)
-    backLeft.setSpeed(speed)
-    forward()
 
-def turnLeft():
-    frontRight.setSpeed(speed)
-    backRight.setSpeed(speed)
-    forward()
+
 
 def initialize():
     frontRight.setSpeed(100)
-   	frontLeft.setSpeed(100)
-   	backLeft.setSpeed(100)
-   	backRight.setSpeed(100)
-   	frontRight.run(Raspi_MotorHAT.FORWARD)
-   	frontLeft.run(Raspi_MotorHAT.FORWARD)
-   	backLeft.run(Raspi_MotorHAT.BACKWARD)
-   	backRight.run(Raspi_MotorHAT.BACKWARD)
+    frontLeft.setSpeed(100)
+    backLeft.setSpeed(100)
+    backRight.setSpeed(100)
+    frontRight.run(Raspi_MotorHAT.FORWARD)
+    frontLeft.run(Raspi_MotorHAT.FORWARD)
+    backLeft.run(Raspi_MotorHAT.BACKWARD)
+    backRight.run(Raspi_MotorHAT.BACKWARD)
     time.sleep(1)
 
 initialize()
+forward()
+time.sleep(2)
+stop()
 turnLeft()
 time.sleep(duration)
-forward()
-time.sleep(3)
 stop()
 
 
