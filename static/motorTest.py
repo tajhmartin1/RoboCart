@@ -55,4 +55,16 @@ def turnRight():
 
 def buttonTest():
     print("it worked")
+    
 
+time.sleep(10)
+initialize()
+time.sleep(1)
+forward()
+time.sleep(3)
+stop()
+time.sleep(1)
+backward()
+time.sleep(3)
+turnLeft()
+time.sleep(3)
