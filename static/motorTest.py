@@ -49,14 +49,9 @@ def turnLeft():
     forward()
 
 def turnRight():
-    frontLeft.setSpeed(speed)
-    backLeft.setSpeed(speed)
+    frontRight.setSpeed(speed)
+    time.sleep(1)
     forward()
-
-def buttonTest():
-    print("it worked")
-    
-
 time.sleep(10)
 initialize()
 time.sleep(1)
