@@ -2,7 +2,7 @@ from Raspi_MotorHAT import Raspi_MotorHAT, Raspi_DCMotor
 import time
 import os
 from flask import Flask, render_template, request
- 
+print('hello world')
 app = Flask(__name__, static_url_path='')
 mh = Raspi_MotorHAT(addr=0x6f)
 frontRight = mh.getMotor(1)
