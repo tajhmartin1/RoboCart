@@ -11,8 +11,6 @@ backLeft = mh.getMotor(3)
 backRight = mh.getMotor(4)
 
 speed = 100
-def test():
-    print('it worked')
 def stop(): 
 
     frontRight.run(Raspi_MotorHAT.RELEASE)
@@ -51,17 +49,10 @@ def turnLeft():
     forward()
 
 def turnRight():
-    frontRight.setSpeed(speed)
-    time.sleep(1)
+    frontLeft.setSpeed(speed)
+    backLeft.setSpeed(speed)
     forward()
-time.sleep(10)
-initialize()
-time.sleep(1)
-forward()
-time.sleep(3)
-stop()
-time.sleep(1)
-backward()
-time.sleep(3)
-turnLeft()
-time.sleep(3)
+
+def buttonTest():
+    print("it worked")
+

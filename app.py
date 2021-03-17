@@ -1,7 +1,7 @@
 from flask import Flask, render_template
-import time
-import os
-from Raspi_MotorHAT import Raspi_MotorHAT, Raspi_DCMotor
+# import time
+# import os
+from Raspi_MotorHAT import motorTest
 
 app = Flask(__name__)
 mh = Raspi_MotorHAT(addr=0x6f)
@@ -11,14 +11,16 @@ backLeft = mh.getMotor(3)
 backRight = mh.getMotor(4)
 @app.route("/")
 def showCOntroller():
-	return render_template('controller.html')
+	return "it worked"
+	# return render_template('controller.html')
 
 @app.route("/right")
 def turnRight():
-	frontRight.setSpeed(50)
-	frontRight.run(Raspi_MotorHAT.FORWARD)
-	time.sleep(1)
-	frontRight.run(Raspi_MotorHAT.RELEASE)
+    motorTest.test()
+	# frontRight.setSpeed(50)
+	# frontRight.run(Raspi_MotorHAT.FORWARD)
+	# time.sleep(1)
+	# frontRight.run(Raspi_MotorHAT.RELEASE)
 
 if __name__ == "__main__":
 	app.run()
