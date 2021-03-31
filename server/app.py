@@ -4,7 +4,7 @@ from flask import Flask, render_template
 from Raspi_MotorHAT import motorTest
 
 @app.route("/")
-def showCOntroller():
+def showController():
 	return "it worked"
 	# return render_template('controller.html')
 
