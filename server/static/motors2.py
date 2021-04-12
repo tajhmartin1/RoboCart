@@ -1,16 +1,12 @@
-# Python Script
-# https://www.electronicshub.org/raspberry-pi-l298n-interface-tutorial-control-dc-motor-l298n-raspberry-pi/
-
 import RPi.GPIO as GPIO          
-from time import sleep
+import time
 
 in1 = 24
 in2 = 23
-in3 = 24
-in4 = 23
+in3 = 17
+in4 = 27
 ena = 25
-enb = 25
-
+enb = 22
 temp1=1
 
 GPIO.setmode(GPIO.BCM)
@@ -20,14 +16,14 @@ GPIO.setup(in3,GPIO.OUT)
 GPIO.setup(in4,GPIO.OUT)
 GPIO.setup(ena,GPIO.OUT)
 GPIO.setup(enb,GPIO.OUT)
-
-GPIO.output(in1,GPIO.HIGH)
+GPIO.output(in1,GPIO.LOW)
 GPIO.output(in2,GPIO.LOW)
-GPIO.output(in3,GPIO.HIGH)
+GPIO.output(in3,GPIO.LOW)
 GPIO.output(in4,GPIO.LOW)
 p=GPIO.PWM(ena,1000)
-
+p=GPIO.PWM(enb,1000)
 p.start(25)
+p.start(22)
 print("\n")
 print("The default speed & direction of motor is LOW & Forward.....")
 print("r-run s-stop f-forward b-backward l-low m-medium h-high e-exit")
@@ -42,24 +38,15 @@ while(1):
         if(temp1==1):
          GPIO.output(in1,GPIO.HIGH)
          GPIO.output(in2,GPIO.LOW)
-       
-         
-         print("forward")
-         x='z'
-        else:
+         GPIO.output(in3,GPIO.HIGH)
+         GPIO.output(in4,GPIO.LOW)
+         time.sleep(5)
          GPIO.output(in1,GPIO.LOW)
-         GPIO.output(in2,GPIO.HIGH)
-         print("backward")
-         x='z'
-
-    if x=='q':
-        print("run")
-        if(temp1==1):
-         GPIO.output(in1,GPIO.LOW)
-         GPIO.output(in2,GPIO.HIGH)
+         GPIO.output(in2,GPIO.LOW)
          GPIO.output(in3,GPIO.LOW)
-         GPIO.output(in4,GPIO.HIGH)
-         print("forward")
+         GPIO.output(in4,GPIO.LOW)
+         if(temp1==1):
+             print("forward")
          x='z'
         else:
          GPIO.output(in1,GPIO.LOW)
@@ -72,6 +59,8 @@ while(1):
         print("stop")
         GPIO.output(in1,GPIO.LOW)
         GPIO.output(in2,GPIO.LOW)
+        GPIO.output(in3,GPIO.LOW)
+        GPIO.output(in4,GPIO.LOW)
         x='z'
 
     elif x=='f':
@@ -106,10 +95,8 @@ while(1):
     
     elif x=='e':
         GPIO.cleanup()
-        print("GPIO Clean up")
         break
     
     else:
         print("<<<  wrong data  >>>")
         print("please enter the defined data to continue.....")
-        
